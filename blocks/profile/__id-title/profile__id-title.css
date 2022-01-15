@@ -1,0 +1,16 @@
+.profile__id-title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .profile__id-title {
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
+}

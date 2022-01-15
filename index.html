@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Mesto Russia</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <a class="header__logo-link" href="#">
+            <img src="./images/logo.svg" alt="Логотип Место Россия">
+        </a>
+    </header>
+<main class="content">
+    <div class="profile">
+        <div class="profile__id">
+            <div class="profile__id-avatar"></div>
+            <div class="profile__id-info">
+                <div class="profile__name">
+                    <div class="profile__id-title">Жак-Ив Кусто</div>
+                    <button class="profile__button-edit"></button>
+                </div>
+                <div class="profile__id-subtitle">Исследователь океана</div>
+            </div>
+        </div>
+        <button class="profile__button-add"></button>
+    </div>
+
+    <div class="pictures">
+        <div class="pictures__board">
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Карачаевск</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/photo-1610555356070-d0efb6505f81.jpeg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Гора Эльбрус</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/photo-1611243017235-84454d0491aa.jpeg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Домбай</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/photo-1621682372775-533449e550ed.jpeg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Гора Эльбрус</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/photo-1616635472195-80955c7029e0.jpeg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Домбай</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+
+            <div class="pictures__item">
+                <img class="pictures__image" src="/images/photo-1627850005124-e10f99a24007.jpeg" alt="Карачаевск">
+                <div class="pictures__description">
+                    <p class="pictures__title">Карачаево-Черкессия</p>
+                    <button class="pictures__like"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</main>
+
+<footer class="footer">
+    <p class="footer__copyright">© 2022 Mesto Russia</p>
+</footer>
+
+<section class="popup">
+    <div class="popup__container">
+        <button class="popup__close"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form">
+            <input class="popup__input name__input" type="text" value="Жак-Ив Кусто">
+            <input class="popup__input job__input" type="text" value="Исследователь океана">
+            <button class="popup__button">Сохранить</button>
+        </form>
+
+    </div>
+
+</section>
+<script src="/scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.popup__open {
+    visibility: visible;
+    opacity: 1;
+}
