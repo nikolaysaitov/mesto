@@ -1,5 +1,5 @@
 .profile__button-edit {
-    background-image: url(/images/EditButton.svg);
+    background-image: url(../../../images/EditButton.svg);
     cursor: pointer;
     background-position: 50%;
     background-repeat: no-repeat;

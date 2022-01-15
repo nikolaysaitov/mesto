@@ -1,5 +1,5 @@
 .profile__id-avatar {
-    background-image: url(/images/image.jpg);
+    background-image: url(../../../images/image.jpg);
     border-radius: 50%;
     width: 120px;
     height: 120px;
