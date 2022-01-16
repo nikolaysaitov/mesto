@@ -14,3 +14,7 @@
 .pictures__like:hover {
     opacity: 0.5;
 }
+
+.pictures__like:active {
+    background-image: url(../../../images/like-active.jpg);
+  }
