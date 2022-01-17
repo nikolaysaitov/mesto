@@ -1,6 +1,6 @@
 .pictures__like {
     background-image: url(../../../images/Vector_like.svg);
-    width: 22px;
+    min-width: 22px;
     height: 19px;
     background-repeat: no-repeat;
     background-size: contain;

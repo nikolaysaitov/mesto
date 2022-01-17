@@ -1,7 +1,11 @@
 .profile__id-subtitle {
-    font-family: Inter;
+    font-family: Inter, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    margin: 0;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden;
 }

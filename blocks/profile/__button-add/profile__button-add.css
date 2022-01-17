@@ -35,4 +35,10 @@
     .profile__button-add {
         width: 100%;
     }
+    .profile__button-add::before,
+    .profile__button-add::after{
+        height: 16px;
+        top: 14px;
+    }
+
 }

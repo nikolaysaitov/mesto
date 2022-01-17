@@ -35,3 +35,19 @@
 .popup__close::before {
     transform: rotate(-135deg);
 }
+
+
+@media (min-width: 320px) and (max-width: 468px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+        right: 0px;
+    }
+
+    .popup__close::after,
+    .popup__close::before {
+        width: 2px;
+        height: 20px;
+        right: 8px;
+    }
+}

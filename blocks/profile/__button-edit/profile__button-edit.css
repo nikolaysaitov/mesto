@@ -15,3 +15,12 @@
 .profile__button-edit:hover {
     opacity: 0.6;
 }
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .profile__button-edit {
+        min-width: 18px;
+        align-self: center;
+    }
+
+}
