@@ -11,6 +11,6 @@
     .profile__id-info {
         text-align: center;
         width: 282px;
-        
+        display: contents;
     }
 }
