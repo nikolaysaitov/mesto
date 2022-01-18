@@ -11,3 +11,13 @@
     transition: visibility 0s, opacity .5s linear;
     visibility: hidden;
 }
+
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .popup {
+    align-items: flex-start;
+    top: 123px;
+    min-width: 320px;
+  }
+}

@@ -9,5 +9,8 @@
     line-height: 17px;
     color: black;
     margin: 0 0 30px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
     padding-bottom: 13px;
 }

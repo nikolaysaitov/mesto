@@ -8,12 +8,13 @@ const closePopupButton = document.querySelector('.popup__close');
 // Открыть попап
 function openPopup() {
     popup.classList.add('popup_open');
+    nameInput.value = title.textContent;
+    jobInput.value = subtitle.textContent;
 }
 //Закрыть попап
 function closePopup() {
 popup.classList.remove('popup_open');
-nameInput.value = title.textContent;
-jobInput.value = subtitle.textContent;
+
 }
 
 //Слушатели на кнопки

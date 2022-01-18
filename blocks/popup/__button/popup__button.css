@@ -13,8 +13,17 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    padding: 0;
 }
 
 .popup__button:hover {
     opacity: 0.8;
+}
+
+@media (min-width: 320px) and (max-width: 468px) {
+    .popup__button {
+        font-size: 14px;
+        line-height: 17px;
+
+    }
 }

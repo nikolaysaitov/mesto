@@ -8,5 +8,6 @@
     .profile__id {
         flex-direction: column;
         margin-bottom: 36px;
+        width: 282px;
     }
 }
