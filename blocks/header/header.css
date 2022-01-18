@@ -1,10 +1,10 @@
 .header {
   max-width: 880px;
-  min-height: 74px;
   background-color: black;
   margin: 45px auto 40px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
- 
+  box-sizing: border-box;
+
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
@@ -27,5 +27,7 @@
     margin: 28px 0px 42px;
     max-width: 100%;
     padding-left: 27px;
+
+
   }
 }
