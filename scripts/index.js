@@ -4,7 +4,6 @@ const openEditButtonPopup = document.querySelector('.profile__button-edit');
 const popup = document.querySelector('.popup');
 const closePopupButton = document.querySelector('.popup__close');
 
-
 // Открыть попап
 function openPopup() {
     popup.classList.add('popup_open');
@@ -14,7 +13,6 @@ function openPopup() {
 //Закрыть попап
 function closePopup() {
 popup.classList.remove('popup_open');
-
 }
 
 //Слушатели на кнопки
@@ -31,19 +29,108 @@ let subtitle = document.querySelector('.profile__id-subtitle');
 //Редактирование имени
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
+    title.textContent = nameInput.value; 
+    subtitle.textContent = jobInput.value;
 
-  
-title.textContent = nameInput.value; 
-subtitle.textContent = jobInput.value;
-
-closePopup();
+    closePopup();
 }
-
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('submit', formSubmitHandler);
 
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+  ];
+
+//popup add
+const openAddButtonPopup = document.querySelector('.profile__button-add');
+const popupAdd = document.querySelector('.popup_add');
+const closePopupButtonAdd = document.querySelector('.popup__close_add');
+
+function openPopupAdd() {
+    popupAdd.classList.add('popup_open');
+}
+
+function closePopupAdd() {
+    popupAdd.classList.remove('popup_open');
+}
+
+openAddButtonPopup.addEventListener('click', openPopupAdd);
+closePopupButtonAdd.addEventListener('click', closePopupAdd);
+
+
+
+
+
+
+
+const cards = document.querySelector('.cards').content;
+const cardList = document.querySelector('.pictures__board');
+
+//iputs
+const inputCardName = document.querySelector('.popup__input_card-name');
+const inputLink = document.querySelector('.popup__input-link');
+
+//buttons
+const cardButton = document.querySelector('.popup__button_card');
+
+//рендер дефолтного массива
+function render(){
+    initialCards.forEach(renderItem);
+}
+
+function renderItem(text){
+    const cardElement = cards.cloneNode(true);
+    const cardImage = cardElement.querySelector('.pictures__image');
+    const cardTitle = cardElement.querySelector('.pictures__title');
+    cardElement.querySelector('.pictures__title').innerText = text;
+ 
+
+
+    // inputCardName.textContent = text.name;
+    // inputLink.src = text.link;
+
+
+    cardTitle.textContent = text.name;
+    cardImage.src = text.link;
+
+    
+    // отображаем на странице
+    cardList.prepend(cardElement);
+}
+
+
+function addItem(event) {
+    event.preventDefault();
+    renderItem(inputCardName.value);
+    closePopupAdd();
+}
+
+cardButton.addEventListener('click', addItem);
+
+render();
 
 

@@ -30,53 +30,7 @@
     </section>
     <section class="pictures">
         <ul class="pictures__board">
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Карачаевск</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
-
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/photo-1610555356070-d0efb6505f81.jpeg" alt="Гора Эльбрус">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Гора Эльбрус</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
-
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/photo-1611243017235-84454d0491aa.jpeg" alt="Горы">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Домбай</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
-
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/photo-1621682372775-533449e550ed.jpeg" alt="Гора Эльбрус">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Гора Эльбрус</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
-
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/photo-1616635472195-80955c7029e0.jpeg" alt="Домбай">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Домбай</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
-
-            <li class="pictures__item">
-                <img class="pictures__image" src="./images/photo-1627850005124-e10f99a24007.jpeg" alt="Карачаево-Черкессия">
-                <div class="pictures__description">
-                    <h2 class="pictures__title">Карачаево-Черкессия</h2>
-                    <button class="pictures__like" type="button"></button>
-                </div>
-            </li>
+            
         </ul>
 
     </section>
@@ -96,10 +50,30 @@
             <input class="popup__input popup__input-job" type="text" value="Исследователь океана">
             <button class="popup__button" type="submit">Сохранить</button>
         </form>
-
     </div>
-
 </section>
+
+<section class="popup popup_add">
+    <div class="popup__container">
+        <button class="popup__close popup__close_add" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form_add" name="form">
+            <input class="popup__input popup__input_card-name" type="text" placeholder="Название">
+            <input class="popup__input popup__input-link" type="text" name="link" placeholder="Ссылка на картинку">
+            <button class="popup__button popup__button_card" type="submit">Сохранить</button>
+        </form>
+    </div>
+</section>
+
+<template  class="cards">
+    <li class="pictures__item">
+        <img class="pictures__image" src="#" alt="Фото">
+        <div class="pictures__description">
+            <h2 class="pictures__title"></h2>
+            <button class="pictures__like" type="button"></button>
+        </div>
+    </li>
+</template>
 <script src="./scripts/index.js"></script>
 </body>
 </html>

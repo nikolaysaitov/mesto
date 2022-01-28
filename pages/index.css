@@ -38,3 +38,5 @@
 @import url(../blocks/popup/__button/popup__button.css);
 
 @import url(../blocks/popup/_open/popup_open.css);
+
+@import url(../blocks/popup/_add/popup_add.css);
