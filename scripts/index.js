@@ -107,11 +107,8 @@ function renderItem(text){
     const cardImage = cardElement.querySelector('.pictures__image');
     const cardTitle = cardElement.querySelector('.pictures__title');
     cardElement.querySelector('.pictures__title').innerText = text;
- 
-
-
-    // inputCardName.textContent = text.name;
-    // inputLink.src = text.link;
+    // cardElement.querySelector('.pictures__image').src = text.link;
+  
 
 
     cardTitle.textContent = text.name;
@@ -125,7 +122,7 @@ function renderItem(text){
 
 function addItem(event) {
     event.preventDefault();
-    renderItem(inputCardName.value);
+    renderItem({name: inputCardName.value, link: inputLink.value});
     closePopupAdd();
 }
 
