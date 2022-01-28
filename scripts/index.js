@@ -72,6 +72,8 @@ const closePopupButtonAdd = document.querySelector('.popup__close_add');
 
 function openPopupAdd() {
     popupAdd.classList.add('popup_open');
+    inputCardName.value = '';
+    inputLink.value = '';
 }
 
 function closePopupAdd() {
@@ -107,9 +109,6 @@ function renderItem(text){
     const cardImage = cardElement.querySelector('.pictures__image');
     const cardTitle = cardElement.querySelector('.pictures__title');
     cardElement.querySelector('.pictures__title').innerText = text;
-    // cardElement.querySelector('.pictures__image').src = text.link;
-  
-
 
     cardTitle.textContent = text.name;
     cardImage.src = text.link;
