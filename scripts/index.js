@@ -144,7 +144,7 @@ function renderItem(text){
 
     popupOpenPic.src = text.link;
     popupOpenTitle.textContent = text.name;
-    
+
 
 
     closePopupButtonPic.addEventListener('click', closePopupPic);
@@ -158,7 +158,6 @@ function renderItem(text){
     // отображаем на странице
     cardList.prepend(cardElement);
 }
-
 
 
 
