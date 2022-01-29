@@ -94,11 +94,31 @@ const inputCardName = document.querySelector('.popup__input_card-name');
 const inputLink = document.querySelector('.popup__input-link');
 
 //buttons
-const cardButton = document.querySelector('.popup__button_card');
+const cardButton = document.querySelector('.popup__button_card');2
 
 //рендер дефолтного массива
 function render(){
     initialCards.forEach(renderItem);
+}
+
+
+
+// Открыть попап
+
+const popupPic = document.querySelector('.popup__picture');
+const popupPicClose = document.querySelector('.popup__picture');
+const closePopupButtonPic = document.querySelector('.popup__close_pic');
+
+// открытая картинка
+
+
+function openPopupPic() {
+  popupPic.classList.add('popup_open');
+  
+}
+function closePopupPic() {
+  popupPic.classList.remove('popup_open');
+  
 }
 
 function renderItem(text){
@@ -110,9 +130,24 @@ function renderItem(text){
     //лайки
     const likeActive = cardElement.querySelector('.pictures__like');
     likeActive.addEventListener('click', addLike);
+
     //удаление
     const deleteButton = cardElement.querySelector('.pictures__delete');
     deleteButton.addEventListener('click', deleteCard);
+
+
+    let popupOpenPic = document.querySelector('.popup__photo');
+    let popupOpenTitle = document.querySelector('.popup__photo-title');
+
+
+    cardImage.addEventListener('click', openPopupPic);
+
+    popupOpenPic.src = text.link;
+    popupOpenTitle.textContent = text.name;
+    
+
+
+    closePopupButtonPic.addEventListener('click', closePopupPic);
 
 
 
@@ -123,6 +158,11 @@ function renderItem(text){
     // отображаем на странице
     cardList.prepend(cardElement);
 }
+
+
+
+
+
 
 
 function addItem(event) {
