@@ -25,6 +25,7 @@
 @import url(../blocks/pictures/__title/pictures__title.css);
 @import url(../blocks/pictures/__like/pictures__like.css);
 @import url(../blocks/pictures/__like/_active/pictures__like_active.css);
+@import url(../blocks/pictures/__delete/pictures__delete.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

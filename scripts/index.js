@@ -86,9 +86,6 @@ closePopupButtonAdd.addEventListener('click', closePopupAdd);
 
 
 
-
-
-
 const cards = document.querySelector('.cards').content;
 const cardList = document.querySelector('.pictures__board');
 
@@ -110,6 +107,15 @@ function renderItem(text){
     const cardTitle = cardElement.querySelector('.pictures__title');
     cardElement.querySelector('.pictures__title').innerText = text;
 
+    //лайки
+    const likeActive = cardElement.querySelector('.pictures__like');
+    likeActive.addEventListener('click', addLike);
+    //удаление
+    const deleteButton = cardElement.querySelector('.pictures__delete');
+    deleteButton.addEventListener('click', deleteCard);
+
+
+
     cardTitle.textContent = text.name;
     cardImage.src = text.link;
 
@@ -129,4 +135,15 @@ cardButton.addEventListener('click', addItem);
 
 render();
 
+
+//лайки
+function addLike(e) {
+    e.target.closest('.pictures__like').classList.toggle('pictures__like_active');
+   
+}
+
+ //удаление
+function deleteCard(e) {
+  e.target.closest('.pictures__item').remove();
+}
 
