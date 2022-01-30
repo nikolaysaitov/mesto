@@ -105,8 +105,8 @@ function render(){
 
 // Открыть попап
 
-const popupPic = document.querySelector('.popup__picture');
-const popupPicClose = document.querySelector('.popup__picture');
+const popupPic = document.querySelector('.popup_picture');
+const popupPicClose = document.querySelector('.popup_picture');
 const closePopupButtonPic = document.querySelector('.popup__close_pic');
 
 // открытая картинка
