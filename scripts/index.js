@@ -136,19 +136,21 @@ function renderItem(text){
     deleteButton.addEventListener('click', deleteCard);
 
 
-    let popupOpenPic = document.querySelector('.popup__photo');
-    let popupOpenTitle = document.querySelector('.popup__photo-title');
+    // let popupOpenPic = document.querySelector('.popup__photo');
+    // let popupOpenTitle = document.querySelector('.popup__photo-title');
 
 
-    cardImage.addEventListener('click', openPopupPic);
+    // cardImage.addEventListener('click', openPopupPic);
 
-    popupOpenPic.src = text.link;
-    popupOpenTitle.textContent = text.name;
+    // popupOpenPic.src = text.link;
+    // popupOpenTitle.textContent = text.name;
 
 
 
     closePopupButtonPic.addEventListener('click', closePopupPic);
 
+
+    cardImage.addEventListener('click', () => openPopupPic(text));
 
 
     cardTitle.textContent = text.name;
@@ -184,5 +186,22 @@ function addLike(e) {
  //удаление
 function deleteCard(e) {
   e.target.closest('.pictures__item').remove();
+}
+
+
+
+
+
+
+// ответ лизы так сработает
+
+let popupOpenPic = document.querySelector('.popup__photo');
+let popupOpenTitle = document.querySelector('.popup__photo-title');
+
+function openPopupPic(data) {
+  popupPic.classList.add('popup_open');
+  
+  popupOpenPic.src = data.link;
+  popupOpenTitle.textContent = data.name;
 }
 
