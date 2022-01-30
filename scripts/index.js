@@ -176,8 +176,8 @@ const popupOpenTitle = document.querySelector('.popup__photo-title');
 
 
 function openPopupPic(data) {
-  popupPic.classList.add('popup_open');
-  
+  // popupPic.classList.add('popup_open');
+  openPopup(popupPic);
   popupOpenPic.src = data.link;
   popupOpenPic.alt = data.name;
   popupOpenTitle.textContent = data.name;
