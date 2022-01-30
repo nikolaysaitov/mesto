@@ -193,7 +193,7 @@ function deleteCard(e) {
 
 
 
-// ответ лизы так сработает
+// большая картинка
 
 let popupOpenPic = document.querySelector('.popup__photo');
 let popupOpenTitle = document.querySelector('.popup__photo-title');
