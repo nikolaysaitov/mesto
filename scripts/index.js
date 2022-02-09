@@ -18,10 +18,15 @@ const subtitle = document.querySelector(".profile__id-subtitle");
 // Открыть попап
 function openPopup(popup) {
   popup.classList.add("popup_open");
+
+  document.addEventListener("keydown", keyCloseEsc);
+  document.addEventListener("click", closeOverlayPopup);
 }
 //Закрыть попап
 function closePopup(popup) {
   popup.classList.remove("popup_open");
+  
+  document.removeEventListener("keydown", keyCloseEsc);
 }
 
 //попап редактирования профиля
@@ -154,9 +159,22 @@ const popupOpenPic = document.querySelector(".popup__photo");
 const popupOpenTitle = document.querySelector(".popup__photo-title");
 
 function openPopupPic(data) {
-  // popupPic.classList.add('popup_open');
   openPopup(popupPic);
   popupOpenPic.src = data.link;
   popupOpenPic.alt = data.name;
   popupOpenTitle.textContent = data.name;
+}
+
+function keyCloseEsc(evt) {
+  if (evt.key === "Escape") {
+    const popupCloseEsc = document.querySelector(".popup_open");
+    closePopup(popupCloseEsc);
+  }
+}
+
+function closeOverlayPopup(evt) {
+  if (evt.target.classList.contains("popup_open")) {
+    const popupCloseOverlay = document.querySelector(".popup_open");
+    closePopup(popupCloseOverlay);
+  }
 }
