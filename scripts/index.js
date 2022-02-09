@@ -14,18 +14,18 @@ const nameInput = document.querySelector(".popup__input-name");
 const jobInput = document.querySelector(".popup__input-job");
 const title = document.querySelector(".profile__id-title");
 const subtitle = document.querySelector(".profile__id-subtitle");
+const popup = document.querySelector(".popup");
 
 // Открыть попап
 function openPopup(popup) {
   popup.classList.add("popup_open");
-
   document.addEventListener("keydown", keyCloseEsc);
-  document.addEventListener("click", closeOverlayPopup);
+  popup.addEventListener("click", closeOverlayPopup);
 }
+
 //Закрыть попап
 function closePopup(popup) {
   popup.classList.remove("popup_open");
-  
   document.removeEventListener("keydown", keyCloseEsc);
 }
 
@@ -40,7 +40,7 @@ function closePopupEdit() {
   closePopup(popupEdit);
 }
 openEditButtonPopup.addEventListener("click", openPopupEdit);
-closePopupButton.addEventListener("click", closePopupEdit);
+closePopupButton.addEventListener("click", () => closePopup(popupEdit));
 
 //попап добавления карточки
 function openPopupAdd() {
@@ -115,7 +115,6 @@ function createCard(card) {
   const cardElement = cards.cloneNode(true);
   const cardImage = cardElement.querySelector(".pictures__image");
   const cardTitle = cardElement.querySelector(".pictures__title");
-
   // //лайки
   const likeActive = cardElement.querySelector(".pictures__like");
   likeActive.addEventListener("click", addLike);
@@ -127,11 +126,13 @@ function createCard(card) {
   cardImage.addEventListener("click", () => openPopupPic(card));
   cardTitle.textContent = card.name;
   cardImage.src = card.link;
+  cardImage.alt = card.name;
   return cardElement;
 }
 
 function renderCard(card) {
   cardList.prepend(createCard(card));
+  cardButton.classList.add("popup__button_disabled");
 }
 
 initialCards.forEach(renderCard);
