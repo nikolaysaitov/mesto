@@ -36,9 +36,6 @@ function openPopupEdit() {
   openPopup(popupEdit);
 }
 
-function closePopupEdit() {
-  closePopup(popupEdit);
-}
 openEditButtonPopup.addEventListener("click", openPopupEdit);
 closePopupButton.addEventListener("click", () => closePopup(popupEdit));
 
@@ -54,17 +51,8 @@ function closePopupAdd() {
 }
 
 openAddButtonPopup.addEventListener("click", openPopupAdd);
-closePopupButtonAdd.addEventListener("click", closePopupAdd);
-
-// //попап открытой картинки
-function openPopupPic() {
-  openPopup(popupPic);
-}
-function closePopupPic() {
-  closePopup(popupPic);
-}
-
-closePopupButtonPic.addEventListener("click", closePopupPic);
+closePopupButtonAdd.addEventListener("click", () => closePopup(popupAdd)); 
+closePopupButtonPic.addEventListener("click", () => closePopup(popupPic));
 
 //Редактирование имени
 function handleProfileFormSubmit(evt) {

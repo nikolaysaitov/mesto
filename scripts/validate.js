@@ -64,7 +64,7 @@ const validationConfig = {
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__error",
   errorClass: "popup__error_active",
-}
+};
 
 function enableValidation(validationConfig) {
   const formList = Array.from(document.querySelectorAll(".popup__form"));
