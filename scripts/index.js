@@ -69,7 +69,13 @@ function openPopupEdit() {
   openPopup(popupEdit);
 }
 
-openEditButtonPopup.addEventListener("click", openPopupEdit);
+// openEditButtonPopup.addEventListener("click", openPopupEdit);
+openEditButtonPopup.addEventListener("click", () => {
+  editProfileValidator.disableSubmitButton();
+  openPopupEdit();
+});
+
+
 closePopupButton.addEventListener("click", () => closePopup(popupEdit));
 
 //попап добавления карточки
