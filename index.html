@@ -45,7 +45,7 @@
     <div class="popup__container">
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="form" novalidate>
+        <form class="popup__form popup__form_edit" name="formEdit" novalidate>
             <input id = "name-input" class="popup__input popup__input-name" type="text" value="Жак-Ив Кусто" minlength="2" maxlength="40" required placeholder="Имя">
             <span class="name-input-error popup__error"></span>
             <input id = "job-input" class="popup__input popup__input-job" type="text" value="Исследователь океана" minlength="2" maxlength="200" required placeholder="О себе">
@@ -60,7 +60,7 @@
     <div class="popup__container">
         <button class="popup__close popup__close_add" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__form_add" name="form" novalidate>
+        <form class="popup__form popup__form_add" name="formAdd" novalidate>
             <input id = "card-input" class="popup__input popup__input_card-name" type="text" minlength="2" maxlength="30" required placeholder="Название">
             <span class="card-input-error popup__error"></span>
             <input id = "url-input" class="popup__input popup__input-link" type="url" name="link" placeholder="Ссылка на картинку" required>

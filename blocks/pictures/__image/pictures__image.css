@@ -3,4 +3,5 @@
     height: 100%;
     min-height: 282px;
     object-fit: cover;
+    cursor: pointer;
 }

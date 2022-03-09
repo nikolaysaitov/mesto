@@ -4,19 +4,21 @@ class Card {
     this._link = data.link;
     this._selector = selector;
     this._openPopupPic = openPopupPic;
+    this._cardElement = document
+    .querySelector(".cards")
+    .content.querySelector(".pictures__item")
+    .cloneNode(true);
+
+
+
   }
 
-  //создет копию teplate
+  //СОЗДАЕТ КОПИЮ ТЕМПЛЭЙТ
   _getTemplate() {
-    const cardElement = document
-      .querySelector(".cards")
-      .content.querySelector(".pictures__item")
-      .cloneNode(true);
-
-    return cardElement;
+    return this._cardElement;
   }
 
-  //создает карточку
+  //СОЗДАЕТ КАРТОЧКУ
   createCard() {
     this._element = this._getTemplate();
 
