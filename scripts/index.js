@@ -83,7 +83,13 @@ function closePopupAdd() {
   closePopup(popupAdd);
 }
 
-openAddButtonPopup.addEventListener("click", openPopupAdd);
+openAddButtonPopup.addEventListener("click", () => {
+  addCardValidator.disableSubmitButton();
+  openPopupAdd();
+});
+
+
+
 closePopupButtonAdd.addEventListener("click", () => closePopup(popupAdd));
 closePopupButtonPic.addEventListener("click", () => closePopup(popupPic));
 

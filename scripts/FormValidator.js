@@ -1,21 +1,21 @@
-
-
 export class FormValidator {
   constructor(validationConfig, formElement) {
     this._formElement = formElement;
     this._validationConfig = validationConfig;
-    
   }
 
-
   _showInputError(inputElement, errorMessage) {
-    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.add(this._validationConfig.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._validationConfig.errorClass);
   }
-  _hideInputError(inputElement){
-    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.remove(this._validationConfig.inputErrorClass);
     errorElement.classList.remove(this._validationConfig.errorClass);
     errorElement.textContent = "";
@@ -29,31 +29,25 @@ export class FormValidator {
     }
   }
 
-
   _hasInvalidInput(inputList) {
     // проходим по этому массиву методом some
     return inputList.some((inputElement) => {
       // Если поле не валидно, колбэк вернёт true
       // Обход массива прекратится и вся фунцкция
       // hasInvalidInput вернёт true
-  
+
       return !inputElement.validity.valid;
     });
   }
 
-
-_disableSubmitButton(buttonElement) {
-  buttonElement.classList.add(this._validationConfig.inactiveButtonClass);
-  buttonElement.disabled = true;
-}
-_enableSubmitButton(buttonElement) {
-  buttonElement.classList.remove(this._validationConfig.inactiveButtonClass);
-  buttonElement.disabled = false;
-}
-
-
-
-
+  _disableSubmitButton(buttonElement) {
+    buttonElement.classList.add(this._validationConfig.inactiveButtonClass);
+    buttonElement.disabled = true;
+  }
+  _enableSubmitButton(buttonElement) {
+    buttonElement.classList.remove(this._validationConfig.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
 
   _toggleButtonState(inputList, buttonElement) {
     // Если есть хотя бы один невалидный инпут
@@ -66,49 +60,38 @@ _enableSubmitButton(buttonElement) {
     }
   }
 
-
   _setEventListeners() {
-    const inputList = Array.from(this._formElement.querySelectorAll(this._validationConfig.inputSelector));
-    const buttonElement = this._formElement.querySelector(this._validationConfig.submitButtonSelector);
-
+    const inputList = Array.from(
+      this._formElement.querySelectorAll(this._validationConfig.inputSelector)
+    );
+    const buttonElement = this._formElement.querySelector(
+      this._validationConfig.submitButtonSelector
+    );
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", function () {
+      inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState(inputList, buttonElement); ///вызов кнопки???
       });
     });
   }
 
-
-
   // ПУБЛИЧНЫЙ МЕТОД КЛЮЧАЮЩИЙ ВАЛИДАЦИЮ ФОРМЫ
   enableValidation() {
-      this._formElement.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-      });
-      this._setEventListeners();
-    }
-  
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    this._setEventListeners();
+  }
+
+  resetErrors() {
+    this.form.reset();
+    this._inputList.forEach( () => {
+      this._checkInputValidity(inputElement);
+    });
+    this._toggleButtonState(inputList, buttonElement);
+  }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const showInputError = (formElement, inputElement, errorMessage) => {
 //   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
