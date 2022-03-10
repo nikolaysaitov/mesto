@@ -1,21 +1,17 @@
 class Card {
-  constructor(data, selector, openPopupPic) {
+  constructor(data, templateSelector, openPopupPic) {
     this._name = data.name;
     this._link = data.link;
-    this._selector = selector;
     this._openPopupPic = openPopupPic;
-    this._cardElement = document
-    .querySelector(".cards")
-    .content.querySelector(".pictures__item")
-    .cloneNode(true);
-
-
-
+    this._templateSelector = templateSelector;
   }
 
   //СОЗДАЕТ КОПИЮ ТЕМПЛЭЙТ
   _getTemplate() {
-    return this._cardElement;
+    return (this._templateSelector = document
+    .querySelector(".cards")
+      .content.querySelector(".pictures__item")
+      .cloneNode(true));
   }
 
   //СОЗДАЕТ КАРТОЧКУ
