@@ -9,11 +9,7 @@ class Card {
 
   //СОЗДАЕТ КОПИЮ ТЕМПЛЭЙТ
   _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector) // используем this._cardSelector
-      .content
-      .querySelector('.pictures__item')
-      .cloneNode(true);
+    const cardElement = document.querySelector(this._templateSelector).content.querySelector('.pictures__item').cloneNode(true);
 
     return cardElement;
   }
