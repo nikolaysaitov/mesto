@@ -154,7 +154,7 @@ const cardButton = document.querySelector(".popup__button_card");
 
 //ДОБАВЛЕНИЕ НОВОЙ КАРТОЧКИ
 function addCard(item) {
-  const card = new Card(item, ".pictures__item", openPopupPic);
+  const card = new Card(item, ".cards", openPopupPic);
   const cardElement = card.createCard();
   cardList.prepend(cardElement);
 }

@@ -2,23 +2,27 @@ class Card {
   constructor(data, templateSelector, openPopupPic) {
     this._name = data.name;
     this._link = data.link;
-    this._openPopupPic = openPopupPic;
     this._templateSelector = templateSelector;
+    this._openPopupPic = openPopupPic;
+    
   }
 
   //СОЗДАЕТ КОПИЮ ТЕМПЛЭЙТ
   _getTemplate() {
-    return (this._templateSelector = document
-    .querySelector(".cards")
-      .content.querySelector(".pictures__item")
-      .cloneNode(true));
+    const cardElement = document
+      .querySelector(this._cardSelector) // используем this._cardSelector
+      .content
+      .querySelector('.pictures__item')
+      .cloneNode(true);
+
+    return cardElement;
   }
 
   //СОЗДАЕТ КАРТОЧКУ
   createCard() {
     this._element = this._getTemplate();
 
-    this._element.querySelector(".pictures__title").textContent = this._name;
+    this._name = this._element.querySelector(".pictures__title").textContent;
     this._image = this._element.querySelector(".pictures__image");
     this._image.src = this._link;
     this._image.alt = this._name;
