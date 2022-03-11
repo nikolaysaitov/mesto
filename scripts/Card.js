@@ -18,7 +18,7 @@ class Card {
   createCard() {
     this._element = this._getTemplate();
 
-    this._name = this._element.querySelector(".pictures__title").textContent;
+    this._element.querySelector('.pictures__title').textContent = this._name;
     this._image = this._element.querySelector(".pictures__image");
     this._image.src = this._link;
     this._image.alt = this._name;
