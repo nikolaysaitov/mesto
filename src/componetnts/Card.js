@@ -17,13 +17,17 @@ export default class Card {
   }
 
   //СОЗДАЕТ КАРТОЧКУ
-  createCard() {
+  generateCard() {
     this._element = this._getTemplate();
 
     this._element.querySelector(".pictures__title").textContent = this._name;
     this._image = this._element.querySelector(".pictures__image");
     this._image.src = this._link;
     this._image.alt = this._name;
+
+
+    this._like = this._element.querySelector('.pictures__like');
+
 
     this._setListeners();
 
@@ -35,23 +39,23 @@ export default class Card {
     this._image.addEventListener("click", () => {
       this._openPopupPic(this._name, this._link);
     });
-    this._element.addEventListener("click", (evt) => {
-      if (evt.target === this._element.querySelector(".pictures__like")) {
-        this._addLike(evt);
-      } else if (
-        evt.target === this._element.querySelector(".pictures__delete")
-      ) {
-        this._deleteCard();
-      }
+    
+    this._element.querySelector('.pictures__like').addEventListener("click", () => {
+      this._addLike();
     });
+
+    this._element.querySelector(".pictures__delete").addEventListener("click", () => {
+      this._deleteCard();
+    });
+    
   }
 
-  _addLike(evt) {
-    evt.target.classList.toggle("pictures__like_active");
+  _addLike() {
+    this._like.classList.toggle("pictures__like_active");
   }
 
   _deleteCard() {
     this._element.remove();
   }
 }
-// export { Card };
+

@@ -27,5 +27,6 @@ export class Popup {
         this.close();
       }
     });
+    this._closeButton.addEventListener("click", () => this.close());
   }
 }
