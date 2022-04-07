@@ -8,6 +8,29 @@ import { PopupWithImage } from "../componetnts/PopupWithImage.js";
 import { PopupWithForm } from "../componetnts/PopupWithForm.js";
 import { UserInfo } from "../componetnts/UserInfo.js";
 import "../pages/index.css";
+import { api } from "../componetnts/Api.js";
+
+let userId;
+
+api.getProfile().then((res) => {
+  userInfo.setUserInfo(res.name, res.about);
+
+  userId = res._id;
+});
+
+api.getInitialCards().then((cardList) => {
+  cardList.forEach((data) => {
+    const newCard = createCard({
+      name: data.name,
+      link: data.link,
+      likes: data.likes,
+      id: data._id,
+      userId: userId,
+      ownerId: data.owner._id
+    });
+    section.addItem(newCard);
+  });
+});
 
 const buttonEditPopup = document.querySelector(".profile__button-edit");
 const popupEdit = document.querySelector(".popup_edit");
@@ -40,20 +63,51 @@ buttonAddPopup.addEventListener("click", () => {
 //Редактирование имени
 const handleProfileFormSubmit = (data) => {
   const { name, job } = data;
-  userInfo.setUserInfo(name, job);
-  profilePopupEdit.close();
+
+  api.editProfile(name, job).then(() => {
+    userInfo.setUserInfo(name, job);
+    profilePopupEdit.close();
+  });
 };
 
 function createCard(data) {
   const card = new Card(data, ".cards", () => {
     popupPic.open(data.name, data.link);
-  });
+  }, (id) => {
+    confirmPopup.open();
+    confirmPopup.changeSubmitHandler(() => {
+      api.deleteCard(id)
+      .then(res => {
+        card.deleteCard();
+        confirmPopup.close();
+      });
+    }); 
+  },
+    (id) => {
+      if(card.isLiked()) {
+        api.deleteLike(id)
+      .then(res => {
+        card.setLikes(res.likes);
+      });
+      } else {
+        api.addLike(id)
+        .then(res => {
+          
+          card.setLikes(res.likes);
+        });
+      }
+      
+      
+    }
+
+  );
   const cardElement = card.generateCard();
   return cardElement;
 }
+
 const section = new Section(
   {
-    items: initialCards,
+    items: [],
     renderer: (item) => {
       const cardElement = createCard(item);
       section.addItem(cardElement);
@@ -65,12 +119,19 @@ section.renderItems();
 
 // СОЗДАНИЕ и СОХРАНЕНИЕ
 function handleCardAddSubmit(data) {
-  const newCard = createCard({
-    name: data["card"],
-    link: data.link,
+  api.addCard(data["card"], data.link)
+  .then((res) => {
+    const newCard = createCard({
+      name: res.name,
+      link: res.link,
+      likes: res.likes,
+      id: res._id,
+      userId: userId,
+      ownerId: res.owner._id
+    });
+    section.addItem(newCard);
+    cardPopupCreate.close();
   });
-  section.addItem(newCard);
-  cardPopupCreate.close();
 }
 
 const popupPic = new PopupWithImage(".popup_picture");
@@ -79,10 +140,22 @@ const profilePopupEdit = new PopupWithForm(
   ".popup_edit",
   handleProfileFormSubmit
 );
+const confirmPopup = new PopupWithForm(".popup_delete-cofirm");
+// popup_delete-cofirm
+// () => {
+//   api.deleteCard(id)
+//   .then(res => {
+//     console.log('res', res);
+//   });
+//   // console.log('delete');
+// }
+
+
 
 cardPopupCreate.setEventListeners();
 profilePopupEdit.setEventListeners();
 popupPic.setEventListeners();
+confirmPopup.setEventListeners();
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__id-title",

@@ -6,7 +6,7 @@
     background-size: contain;
     background-color: transparent;
     border: none;
-    margin: 5px 5px 1px 0px;
+    /* margin: 5px 5px 1px 0px; */
     cursor: pointer;
     transition: all .3s ease;
 }
