@@ -41,4 +41,5 @@
 .popup__picture-open{position:relative}
 .popup__photo{max-height:75vh;max-width:75vw}
 .popup__photo-title{color:#fff;font-family:Inter,Arial,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:15px;margin:10px 0 0}
+.profile__id-wrapper{position:relative}.profile__id-wrapper:before{background:no-repeat rgba(0,0,0,.8) url(a086f758840ae814ecde.svg);background-position:50%;background-size:26px;border-radius:100%;bottom:-1px;content:"";left:-23px;margin:0;opacity:0;padding:0;position:absolute;right:-1px;text-decoration:none;top:-11px;transition:.5s;z-index:2}.profile__id-wrapper:hover:before{cursor:pointer;opacity:1}
 
