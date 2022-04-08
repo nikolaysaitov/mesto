@@ -153,7 +153,6 @@ const confirmPopup = new PopupWithForm(".popup_delete-confirm");
 
 const avatarEditButton = document.querySelector('.profile__id-avatar');
 
-
 function submitEditAvatarForm(avatar) {
   api.updateAvatar(avatar)
   .then(res => {
