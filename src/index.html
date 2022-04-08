@@ -69,13 +69,27 @@
     </div>
 </section>
 
-<section class="popup popup_delete-cofirm">
+<section class="popup popup_delete-confirm">
     <div class="popup__container">
         <button class="popup__close popup__close_add" type="button"></button>
         <h2 class="popup__title">Вы уверены?</h2>
         <form class="popup__form popup__form_add" name="formAdd" novalidate>
            
             <button class="popup__button popup__button_card" type="submit">Да</button>
+        </form>
+    </div>
+</section>
+
+<section class="popup popup_avatar">
+    <div class="popup__container">
+        <button class="popup__close popup__close_add" type="button"></button>
+        <h2 class="popup__title">Обновить аватар
+        </h2>
+        <form class="popup__form popup__form_add" name="formAdd" novalidate>
+
+            <input name="link" id = "url-avatar-input" class="popup__input popup__input-link" type="url" placeholder="Ссылка на фотографию" required>
+            <span class="url-avatar-input-error popup__error"></span>
+            <button class="popup__button popup__button_card" type="submit">Сохранить</button>
         </form>
     </div>
 </section>

@@ -26,7 +26,8 @@ api.getInitialCards().then((cardList) => {
       likes: data.likes,
       id: data._id,
       userId: userId,
-      ownerId: data.owner._id
+      ownerId: data.owner._id,
+      avatar: data.avatar
     });
     section.addItem(newCard);
   });
@@ -68,6 +69,8 @@ const handleProfileFormSubmit = (data) => {
     userInfo.setUserInfo(name, job);
     profilePopupEdit.close();
   });
+
+  
 };
 
 function createCard(data) {
@@ -127,7 +130,9 @@ function handleCardAddSubmit(data) {
       likes: res.likes,
       id: res._id,
       userId: userId,
-      ownerId: res.owner._id
+      ownerId: res.owner._id,
+
+      avatar: res.avatar
     });
     section.addItem(newCard);
     cardPopupCreate.close();
@@ -140,15 +145,34 @@ const profilePopupEdit = new PopupWithForm(
   ".popup_edit",
   handleProfileFormSubmit
 );
-const confirmPopup = new PopupWithForm(".popup_delete-cofirm");
-// popup_delete-cofirm
-// () => {
-//   api.deleteCard(id)
-//   .then(res => {
-//     console.log('res', res);
-//   });
-//   // console.log('delete');
-// }
+const confirmPopup = new PopupWithForm(".popup_delete-confirm");
+
+
+
+
+
+const avatarEditButton = document.querySelector('.profile__id-avatar');
+
+
+function submitEditAvatarForm(avatar) {
+  api.updateAvatar(avatar)
+  .then(res => {
+    userInfo.setUserInfo(res.name, res.about, res.avatar);
+    avatarPopup.close();
+  });
+}
+
+
+
+const avatarPopup = new PopupWithForm(".popup_avatar", submitEditAvatarForm);
+
+avatarEditButton.addEventListener("click", () => {
+  avatarPopup.open();
+});
+
+avatarPopup.setEventListeners();
+
+
 
 
 
@@ -157,7 +181,9 @@ profilePopupEdit.setEventListeners();
 popupPic.setEventListeners();
 confirmPopup.setEventListeners();
 
+
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__id-title",
   profileJobSelector: ".profile__id-subtitle",
+  profileAvatarSelector: ".profile__id-avatar"
 });
