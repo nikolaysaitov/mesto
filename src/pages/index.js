@@ -162,14 +162,11 @@ function submitEditAvatarForm(avatar) {
   });
 }
 
-
-
 const avatarPopup = new PopupWithForm(".popup_avatar", submitEditAvatarForm);
 
 avatarEditButton.addEventListener("click", () => {
   avatarPopup.open();
 });
-
 avatarPopup.setEventListeners();
 
 
