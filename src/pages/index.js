@@ -15,7 +15,7 @@ let urlAvatar;
 
 api.getProfile().then((res) => {
   userInfo.setUserInfo(res.name, res.about, res.avatar);
-
+  urlAvatar = res.avatar;
   userId = res._id;
 });
 
@@ -76,7 +76,7 @@ const handleProfileFormSubmit = (data) => {
   const { name, job } = data;
 
   api.editProfile(name, job).then(() => {
-    userInfo.setUserInfo(name, job);
+    userInfo.setUserInfo(name, job, urlAvatar);
     profilePopupEdit.close();
   });
 
