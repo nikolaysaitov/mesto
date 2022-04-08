@@ -11,10 +11,10 @@ import "../pages/index.css";
 import { api } from "../componetnts/Api.js";
 
 let userId;
-
+let urlAvatar;
 
 api.getProfile().then((res) => {
-  userInfo.setUserInfo(res.name, res.about);
+  userInfo.setUserInfo(res.name, res.about, res.avatar);
 
   userId = res._id;
 });
