@@ -41,11 +41,20 @@ const nameInput = document.querySelector(".popup__input-name");
 const jobInput = document.querySelector(".popup__input-job");
 const cardFormCreate = popupAdd.querySelector(".popup__form");
 const formEdit = popupEdit.querySelector(".popup__form");
+
+
 const profileValidatorEdit = new FormValidator(validationConfig, formEdit);
 const cardValidatorCreate = new FormValidator(validationConfig, cardFormCreate);
 
+
+const avatarPopupEdit = document.querySelector(".popup_avatar");
+const avatarFormEdit = avatarPopupEdit.querySelector(".popup__form");
+const avatarValidatorEdit = new FormValidator(validationConfig, avatarFormEdit);
+
 profileValidatorEdit.enableValidation();
 cardValidatorCreate.enableValidation();
+avatarValidatorEdit.enableValidation();
+
 
 buttonEditPopup.addEventListener("click", () => {
   const { name, job } = userInfo.getUserInfo();
@@ -154,8 +163,9 @@ const confirmPopup = new PopupWithForm(".popup_delete-confirm");
 const avatarEditButton = document.querySelector('.profile__id-avatar');
 
 function submitEditAvatarForm(avatar) {
-  api.updateAvatar(avatar)
-  .then(res => {
+  api.updateAvatar(avatar.link)
+  .then((res) => {
+    // console.log('res', res);
     userInfo.setUserInfo(res.name, res.about, res.avatar);
     avatarPopup.close();
   });
@@ -164,6 +174,8 @@ function submitEditAvatarForm(avatar) {
 const avatarPopup = new PopupWithForm(".popup_avatar", submitEditAvatarForm);
 
 avatarEditButton.addEventListener("click", () => {
+  avatarValidatorEdit.resetErrors();
+  avatarValidatorEdit.disableSubmitButton();
   avatarPopup.open();
 });
 avatarPopup.setEventListeners();

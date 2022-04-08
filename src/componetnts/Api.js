@@ -74,7 +74,7 @@ class Api {
   
   updateAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar
