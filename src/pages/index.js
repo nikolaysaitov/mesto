@@ -12,6 +12,7 @@ import { api } from "../componetnts/Api.js";
 
 let userId;
 
+
 api.getProfile().then((res) => {
   userInfo.setUserInfo(res.name, res.about);
 
@@ -167,6 +168,7 @@ function submitEditAvatarForm(avatar) {
   .then((res) => {
     // console.log('res', res);
     userInfo.setUserInfo(res.name, res.about, res.avatar);
+   
     avatarPopup.close();
   });
 }
