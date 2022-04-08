@@ -74,7 +74,7 @@ buttonAddPopup.addEventListener("click", () => {
 //Редактирование имени
 const handleProfileFormSubmit = (data) => {
   const { name, job } = data;
-
+  profilePopupEdit.renderLoading(true);
   api.editProfile(name, job).then(() => {
     userInfo.setUserInfo(name, job, urlAvatar);
     profilePopupEdit.close();
@@ -132,6 +132,7 @@ section.renderItems();
 
 // СОЗДАНИЕ и СОХРАНЕНИЕ
 function handleCardAddSubmit(data) {
+  cardPopupCreate.renderLoading(true);
   api.addCard(data["card"], data.link)
   .then((res) => {
     const newCard = createCard({
@@ -161,9 +162,10 @@ const confirmPopup = new PopupWithForm(".popup_delete-confirm");
 
 
 
-const avatarEditButton = document.querySelector('.profile__id-avatar');
+const avatarEditButton = document.querySelector('.profile__id-wrapper');
 
 function submitEditAvatarForm(avatar) {
+  avatarPopup.renderLoading(true);
   api.updateAvatar(avatar.link)
   .then((res) => {
     // console.log('res', res);
