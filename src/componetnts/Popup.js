@@ -7,6 +7,7 @@ export class Popup {
 
 
     this._submitButton = this._popup.querySelector('.popup__button');
+    // this._initButtonText = this._submitButton.textContent;
 
   }
 

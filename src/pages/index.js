@@ -17,7 +17,7 @@ api.getProfile().then((res) => {
   userInfo.setUserInfo(res.name, res.about, res.avatar);
   urlAvatar = res.avatar;
   userId = res._id;
-});
+}).catch(console.log);
 
 api.getInitialCards().then((cardList) => {
   cardList.forEach((data) => {
@@ -30,9 +30,9 @@ api.getInitialCards().then((cardList) => {
       ownerId: data.owner._id,
       avatar: data.avatar
     });
-    section.addItem(newCard);
+    cardsContainer.addItem(newCard);
   });
-});
+}).catch(console.log);
 
 const buttonEditPopup = document.querySelector(".profile__button-edit");
 const popupEdit = document.querySelector(".popup_edit");
@@ -78,6 +78,9 @@ const handleProfileFormSubmit = (data) => {
   api.editProfile(name, job).then(() => {
     userInfo.setUserInfo(name, job, urlAvatar);
     profilePopupEdit.close();
+  }).catch(console.log)
+  .finally(() => {
+    profilePopupEdit.renderLoading(false);
   });
 
   
@@ -93,7 +96,7 @@ function createCard(data) {
       .then(res => {
         card.deleteCard();
         confirmPopup.close();
-      });
+      }).catch(console.log);
     }); 
   },
     (id) => {
@@ -107,7 +110,7 @@ function createCard(data) {
         .then(res => {
           
           card.setLikes(res.likes);
-        });
+        }).catch(console.log);
       }
       
       
@@ -118,17 +121,17 @@ function createCard(data) {
   return cardElement;
 }
 
-const section = new Section(
+const cardsContainer = new Section(
   {
     items: [],
     renderer: (item) => {
       const cardElement = createCard(item);
-      section.addItem(cardElement);
+      cardsContainer.addItem(cardElement);
     },
   },
   ".pictures__board"
 );
-section.renderItems();
+cardsContainer.renderItems();
 
 // СОЗДАНИЕ и СОХРАНЕНИЕ
 function handleCardAddSubmit(data) {
@@ -145,8 +148,11 @@ function handleCardAddSubmit(data) {
 
       avatar: res.avatar
     });
-    section.addItem(newCard);
+    cardsContainer.addItem(newCard);
     cardPopupCreate.close();
+  }).catch(console.log)
+  .finally(() => {
+    cardPopupCreate.renderLoading(false);
   });
 }
 
@@ -168,10 +174,12 @@ function submitEditAvatarForm(avatar) {
   avatarPopup.renderLoading(true);
   api.updateAvatar(avatar.link)
   .then((res) => {
-    // console.log('res', res);
     userInfo.setUserInfo(res.name, res.about, res.avatar);
    
     avatarPopup.close();
+  }).catch(console.log)
+  .finally(() => {
+    avatarPopup.renderLoading(false);
   });
 }
 
