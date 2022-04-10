@@ -20,6 +20,7 @@ api.getProfile().then((res) => {
 }).catch(console.log);
 
 api.getInitialCards().then((cardList) => {
+  cardList.reverse();
   cardList.forEach((data) => {
     const newCard = createCard({
       name: data.name,
